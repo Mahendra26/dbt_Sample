@@ -17,9 +17,15 @@ clean-targets:
 
 models:
   phdata_dbt:
-      materialized: table
-      example:
+      core:
         materialized: view
-        tags: ["staging", "hourly"]
+        tags: ["core"]
+      consumption:
+        materialized: table
+        tags: ["consumption"]
+      stage:
+        materialized: view
+        tags: ["staging"]
+
 
 
