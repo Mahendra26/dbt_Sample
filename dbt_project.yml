@@ -1,0 +1,25 @@
+
+
+name: 'phdata_dbt'
+version: '0.1'
+profile: 'default'
+
+source-paths: ["models"]
+analysis-paths: ["analysis"]
+test-paths: ["tests"]
+data-paths: ["data"]
+macro-paths: ["macros"]
+target-path: "target"
+clean-targets:
+    - "target"
+    - "dbt_modules"
+    - "logs"
+
+models:
+  phdata_dbt:
+      materialized: table
+      example:
+        materialized: view
+        tags: ["staging", "hourly"]
+
+
