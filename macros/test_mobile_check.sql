@@ -1,15 +1,15 @@
-{% macro test_email_check(model, column_name) %}
+{% macro test_mobile_check(model, column_name) %}
 with validation as (
     select
-        {{column_name}} as email_field
+        {{column_name}} as mobile_field
     from {{model}}
 ),
-validation_errors as (
+validation_error as (
     select
-        email_field
+        mobile_field
     from validation
     -- if this is true, then date_field is actually not in the desired format!
-    where email_field NOT like '%@%' and email_field is NOT null
+    where length(mobile_field) !=10
 )
 select count(*)
 from validation_errors

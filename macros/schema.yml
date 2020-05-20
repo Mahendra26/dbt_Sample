@@ -2,7 +2,6 @@ version: 2
 models:
   - name: stg_customers
     columns:
-      - name: email
+      - name: mobile
         tests:
-        - unique
-        - email_check
+        - mobile_check
