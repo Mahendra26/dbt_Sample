@@ -4,7 +4,7 @@ with orders as (
 
 ),
 
-with customers as (
+customers as (
 
 	select * from {{ ref('01_stg_customers') }}
 
@@ -30,8 +30,8 @@ final as (
     select *
     from customers
 
-    outer join orders using (order_id)
+    join orders using (customer_id)
 
-    group by 1
+)
 
 select * from final
