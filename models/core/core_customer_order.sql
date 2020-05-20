@@ -30,7 +30,7 @@ final as (
     select *
     from customers
 
-    join orders using (customer_id)
+    join renamed using (customer_id)
 
 )
 

@@ -7,9 +7,12 @@ renamed as (
 
     select
         id as customer_id,
+        initials,
         first_name,
         last_name,
-        email
+        email,
+        gender,
+        mobile
 
     from source
 
