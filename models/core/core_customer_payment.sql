@@ -1,18 +1,18 @@
 with payments as (
 
-    select * from {{ ref('03_stg_payments') }}
+    select * from {{ ref('stg_payments') }}
 
 ),
 
 customers as (
 
-    select * from {{ ref('01_stg_customers') }}
+    select * from {{ ref('stg_customers') }}
 
 ),
 
 orders as (
 
-    select * from {{ ref('02_stg_orders') }}
+    select * from {{ ref('stg_orders') }}
 
 ),
 

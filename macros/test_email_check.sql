@@ -1,8 +1,9 @@
-{% macro test_email_check(stg_customers, email) %}
+{% macro test_email_check(model, column_name) %}
 with validation as (
     select
-        email as email_field
-    from stg_customers
+        '{{ column_name }}' as email_field
+    from '{{ model }}'
+),
 validation_errors as (
     select
         email_field
