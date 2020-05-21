@@ -1,7 +1,0 @@
-version: 2
-models:
-  - name: stg_customers
-    columns:
-      - name: mobile
-        tests:
-        - mobile_check

@@ -1,10 +1,12 @@
+-- https://docs.getdbt.com/docs/writing-code-in-dbt/extending-dbts-programming-environment/custom-schema-tests
 {% macro test_mobile_check(model, column_name) %}
 with validation as (
     select
         {{column_name}} as mobile_field
     from {{model}}
 ),
-validation_error as (
+
+validation_errors as (
     select
         mobile_field
     from validation

@@ -1,3 +1,5 @@
+{% set payment_methods = ['credit_card', 'coupon', 'bank_transfer', 'gift_card'] %}
+
 with payments as (
 
     select * from {{ ref('stg_payments') }}
@@ -13,14 +15,19 @@ orders as (
 final as (
 
     select
-        orders.customer_id,order_id,payment_method,
+        order_id,
+
+        {% for payment_method in payment_methods -%}
+        sum(case when payment_method = '{{payment_method}}' then amount else 0 end) as {{payment_method}}_amount,
+        {% endfor -%}
+        
         sum(amount) as total_amount
 
     from payments
 
     left join orders using (order_id)
 
-    group by customer_id,order_id,payment_method
+    group by 1
 )
 
 select * from final

@@ -4,12 +4,13 @@ with validation as (
         {{column_name}} as email_field
     from {{model}}
 ),
+
 validation_errors as (
     select
         email_field
     from validation
     -- if this is true, then date_field is actually not in the desired format!
-    where email_field NOT like '%@%' and email_field is NOT null
+    where email_field not like '%@%'
 )
 select count(*)
 from validation_errors
