@@ -1,15 +1,15 @@
 version: 2
 models:
   - name: stg_customers
-    description: This table has description
+    description: '{{ doc("table_desc") }}'
     columns:
       - name: customer_id
-        description: This is the unique identifier
+        description: This is the unique identifier for customers.
         tests:
           - unique
           - not_null
       - name: initials
-        description: This is the unique identifier
+        description: Prefix for the person's name
         tests:
           - not_null
           - accepted_values:
@@ -39,7 +39,6 @@ models:
           - unique
           - mobile_check
   - name: stg_orders
-    description: '{{ doc("table_desc") }}'
     columns:
       - name: order_id
         tests:
