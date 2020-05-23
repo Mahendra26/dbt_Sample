@@ -1,4 +1,13 @@
 version: 2
+
+sources:
+  - name: dbt_Sample
+    database: postgres
+    tables:
+      - name: raw_customers
+      - name: raw_orders
+      - name: raw_payments
+
 models:
   - name: stg_customers
     description: '{{ doc("table_desc") }}'
