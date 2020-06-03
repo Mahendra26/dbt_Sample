@@ -17,15 +17,17 @@ clean-targets:
 
 models:
   phdata_dbt:
-      core:
+      L1:
         materialized: view
-        tags: ["core"]
-      consumption:
+        tags: ["L1"]
+      L2:
+        materialized: view
+        tags: ["L2"]
+      L3:
         materialized: table
-        tags: ["consumption"]
-      stage:
-        materialized: view
-        tags: ["staging"]
+        tags: ["L3"]
+
+
 
 
 
